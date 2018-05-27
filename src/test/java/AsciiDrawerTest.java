@@ -94,4 +94,21 @@ public class AsciiDrawerTest {
                         "# # ##  ");
     }
 
+    @Test
+    public void TestLowerCase_a() {
+
+        String textToTransform = "a\n";
+        String inputString = asciiParams + textToTransform + asciiArt;
+        Input input = new Input(inputString);
+
+        AsciiDrawer asciiDrawer = new AsciiDrawer(input);
+        assertThat(asciiDrawer.draw())
+                .isEqualTo("" +
+                        " #  \n" +
+                        "# # \n" +
+                        "### \n" +
+                        "# # \n" +
+                        "# # ");
+    }
+
 }

@@ -22,11 +22,15 @@ class AsciiDrawer {
 class AsciiLettersHandler {
 
     private static final int NUMBER_OF_ALPHABET_LETTERS = ('Z' - 'A' + 1);
+    private static final int NUMBER_LETTERS_BETWEEN_LOWER_UPPER_A = ('a' - 'A');
 
     static int getStartingIndex(Character letter, int length) {
         if('A' <= letter && letter<='Z'){
             return (letter - 'A') * length;
-        }else
+        }else if('a' <= letter && letter<='z'){
+            return (letter - NUMBER_LETTERS_BETWEEN_LOWER_UPPER_A - 'A') * length;
+        }
+        else
             return NUMBER_OF_ALPHABET_LETTERS * length;
 
     }
