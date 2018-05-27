@@ -11,13 +11,12 @@ class AsciiDrawer {
         StringBuilder stringBuilder = new StringBuilder();
 
         for (String asciiRepresentationRow : input.getAsciiRepresentationRows()) {
-            for(Character letter : input.getTextToDraw().toCharArray()){
-                AsciiLettersHandler.drawRowPartOfLetter(stringBuilder, asciiRepresentationRow, letter, input.getLength());
-            }
+            stringBuilder.append(AsciiLettersHandler.drawRow(asciiRepresentationRow, input.getTextToDraw().toCharArray(), input.getLength()));
             stringBuilder.append("\n");
         }
         return stringBuilder.deleteCharAt(stringBuilder.length() - 1).toString();
     }
+
 }
 
 class AsciiLettersHandler {
@@ -36,9 +35,13 @@ class AsciiLettersHandler {
         return getStartingIndex(letter,length)+length;
     }
 
-    static void drawRowPartOfLetter(StringBuilder stringBuilder, String asciiRepresentationRow, Character letter, Integer length) {
-        int startingIndex = getStartingIndex(letter, length);
-        int endingIndex = getEndingIndex(letter, length);
-        stringBuilder.append(asciiRepresentationRow, startingIndex, endingIndex);
+    static String drawRow(String asciiRepresentationRow, char[] chars, Integer length) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for(Character letter : chars){
+            int startingIndex = getStartingIndex(letter, length);
+            int endingIndex = getEndingIndex(letter, length);
+            stringBuilder.append(asciiRepresentationRow, startingIndex, endingIndex);
+        }
+        return stringBuilder.toString();
     }
 }

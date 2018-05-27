@@ -6,7 +6,7 @@ class Input {
 
     private final Integer height;
     private final Integer length;
-    private final String textToTransform;
+    private final String textToDraw;
     private final List<String> asciiRepresentationRows;
 
     Input(String input) {
@@ -16,7 +16,7 @@ class Input {
         if (scanner.hasNextLine()) {
             scanner.nextLine();
         }
-        textToTransform = scanner.nextLine();
+        textToDraw = scanner.nextLine();
         asciiRepresentationRows = new ArrayList<>();
 
         while (scanner.hasNextLine()) {
@@ -32,7 +32,7 @@ class Input {
         if (scanner.hasNextLine()) {
             scanner.nextLine();
         }
-        textToTransform = scanner.nextLine();
+        textToDraw = scanner.nextLine();
         asciiRepresentationRows = new ArrayList<>();
 
         while (scanner.hasNextLine()) {
@@ -51,7 +51,7 @@ class Input {
     }
 
     String getTextToDraw() {
-        return textToTransform;
+        return textToDraw;
     }
 
     List<String> getAsciiRepresentationRows() {
