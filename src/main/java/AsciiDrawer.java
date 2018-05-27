@@ -11,7 +11,7 @@ class AsciiDrawer {
         StringBuilder stringBuilder = new StringBuilder();
 
         for (String asciiRepresentationRow : input.getAsciiRepresentationRows()) {
-            for(Character letter : input.getTextToTransform().toCharArray()){
+            for(Character letter : input.getTextToDraw().toCharArray()){
                 AsciiLettersHandler.drawRowPartOfLetter(stringBuilder, asciiRepresentationRow, letter, input.getLength());
             }
             stringBuilder.append("\n");

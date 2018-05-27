@@ -50,7 +50,7 @@ class Input {
         return length;
     }
 
-    String getTextToTransform() {
+    String getTextToDraw() {
         return textToTransform;
     }
 

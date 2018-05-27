@@ -22,7 +22,7 @@ public class InputTest {
 
         assertThat(input.getHeight()).isEqualTo(5);
         assertThat(input.getLength()).isEqualTo(4);
-        assertThat(input.getTextToTransform()).isEqualTo("E");
+        assertThat(input.getTextToDraw()).isEqualTo("E");
 
         List<String> asciiRepExpected = new ArrayList<>();
         asciiRepExpected.add(" #  ##   ## ##  ### ###  ## # # ###  ## # # #   # # ###  #  ##   #  ##   ## ### # # # # # # # # # # ### ### ");
