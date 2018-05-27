@@ -8,16 +8,13 @@ class AsciiDrawer {
     }
 
     String draw() {
-        return drawLetter(input.getTextToTransform().charAt(0));
-    }
-
-    private String drawLetter(Character letter) {
         StringBuilder stringBuilder = new StringBuilder();
-        int startingIndex = AsciiLettersHandler.getStartingIndex(letter, input.getLength());
-        int endingIndex = AsciiLettersHandler.getEndingIndex(letter, input.getLength());
 
-        for (String row : input.getAsciiRepresentationRows()) {
-            stringBuilder.append(row, startingIndex, endingIndex).append("\n");
+        for (String asciiRepresentationRow : input.getAsciiRepresentationRows()) {
+            for(Character letter : input.getTextToTransform().toCharArray()){
+                AsciiLettersHandler.drawRowPartOfLetter(stringBuilder, asciiRepresentationRow, letter, input.getLength());
+            }
+            stringBuilder.append("\n");
         }
         return stringBuilder.deleteCharAt(stringBuilder.length() - 1).toString();
     }
@@ -37,5 +34,11 @@ class AsciiLettersHandler {
 
     static int getEndingIndex(Character letter, int length) {
         return getStartingIndex(letter,length)+length;
+    }
+
+    static void drawRowPartOfLetter(StringBuilder stringBuilder, String asciiRepresentationRow, Character letter, Integer length) {
+        int startingIndex = getStartingIndex(letter, length);
+        int endingIndex = getEndingIndex(letter, length);
+        stringBuilder.append(asciiRepresentationRow, startingIndex, endingIndex);
     }
 }

@@ -23,8 +23,6 @@ public class AsciiDrawerTest {
                 "### ##  #   # # ##  ##  # # ###  #    # ##  #   ### # # # # ##  # # ##   #   #  # # # # ###  #   #   #   ## \n" +
                 "# # # # #   # # #   #   # # # #  #  # # # # #   # # # # # # #    ## # #   #  #  # # # # ### # #  #  #       \n" +
                 "# # ##   ## ##  ### #    ## # # ###  #  # # ### # # # #  #  #     # # # ##   #  ###  #  # # # #  #  ###  #  ";
-
-
     }
 
 
@@ -80,20 +78,20 @@ public class AsciiDrawerTest {
     }
 
     @Test
-    public void TestTwoLetter_A() {
+    public void TestTwoLetter_AB() {
 
-        String textToTransform = "A\n";
+        String textToTransform = "AB\n";
         String inputString = asciiParams + textToTransform + asciiArt;
         Input input = new Input(inputString);
 
         AsciiDrawer asciiDrawer = new AsciiDrawer(input);
         assertThat(asciiDrawer.draw())
                 .isEqualTo("" +
-                        " #  \n" +
-                        "# # \n" +
-                        "### \n" +
-                        "# # \n" +
-                        "# # ");
+                        " #  ##  \n" +
+                        "# # # # \n" +
+                        "### ##  \n" +
+                        "# # # # \n" +
+                        "# # ##  ");
     }
 
 }
